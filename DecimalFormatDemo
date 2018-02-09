@@ -1,0 +1,17 @@
+import java.util.*;
+import java.text.*;
+
+public class DecimalFormat {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		 Date today = new Date( );
+	      SimpleDateFormat format = 
+	      new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+
+	      System.out.println("Current Date: " + format.format(today));
+	   
+	}
+
+}
