@@ -1,0 +1,21 @@
+
+import java.text.NumberFormat;
+
+	public class Currency {
+		
+		public static void main(String[] args) {
+			NumberFormat money = NumberFormat.getCurrencyInstance();
+			NumberFormat percent = NumberFormat.getPercentInstance();
+			
+			double initialValue;
+			double total;
+			double interestRate;
+			
+			initialValue = 500;
+			interestRate = 56;
+			
+			total = initialValue + initialValue*interestRate;
+			
+			System.out.println(money.format(total));
+		}
+	}
