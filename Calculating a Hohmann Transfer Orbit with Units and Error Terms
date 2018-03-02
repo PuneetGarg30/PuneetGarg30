@@ -1,0 +1,196 @@
+Puneet Garg
+170056
+
+Calculating a Hohmann Transfer Orbit with Units and Error Terms
+
+Please study equations 1 through 6. Notice that error terms have been added. You are to follow the pattern shown in those equations in the equations that follow.  Quality is more important than speed.  
+
+1.	First step has no equations
+2.	Earth’s distance from sun: 
+R1(Earth) =149600000 ± 5e4 km 
+	Mars distance from sun: 
+R2(Mars) = 227920000 ± 5e3 km 
+
+3.	Gravitational parameter:
+GM = 1.327e11 ± 5e7 km3/s2 
+
+4.	Orbital Periods in seconds:
+P1(Earth) = 31558149.504 ± 5e-4 s 
+P2(Mars) = 59329255.68 ± 5e-3 s 
+
+5.	 Compute the Semi-major Axis of the Transfer Orbit:
+a(Hohman transfer) = (R1(Earth) km + R2(Mars) km) / 2
+a(Hohman transfer) = (149600000 ± 5e4 km + 227920000 ± 5e3 km) / 2
+a(Hohman transfer) = ((149600000 + 227920000) ± (5e4 + 5e3) km) / 2
+a(Hohman transfer) = (377520000 ± 5.5e4 km) / 2
+a(Hohman transfer) = 188760000 ± 5e4 km
+
+6.	Find the period of the Hohmann Transfer Orbit:
+P(Hohman transfer) = √(4𝜋2 × a3 km3/ GM km3/s2)
+
+P(Hohman transfer) = √(4 × (3.141592653589793 ± 5e-16)2 × 
+(188760000 ± 5e4)3 km3 / 1.327e11 ± 5e7 km3/s2)
+
+P(Hohman transfer) = √(4 × (3.141592653589793 ± 5e-16)2 × 
+(188760000 ± 5e4)3 km3 / 1.327e11 ± 5e7 km3/s2)
+
+(3.141592653589793 ± 5e-16)2 ⇒ 9.869604401089359 ±
+9.869604401089359 × 2 × 5e-16 ÷ 3.141592653589793
+
+(3.141592653589793 ± 5e-16)2 ⇒ 9.869604401089359 ±
+19.739208802178717 × 5e-16 ÷ 3.141592653589793
+
+(3.141592653589793 ± 5e-16)2 ⇒ 9.869604401089359 ±
+9.8696044010893585e-15 ÷ 3.141592653589793
+
+(3.141592653589793 ± 5e-16)2 ⇒ 9.869604401089359 ± 3e-15
+P(Hohman transfer) = √(4 × 9.869604401089359 ± 3e-15 × 
+(188760000 ± 5e4)3 km3 / 1.327e11 ± 5e7 km3/s2)
+
+4 × 9.869604401089359 ± 3e-15 ⇒ (4 × 9.869604401089359) ± (4 × 3e-15)
+
+	⇒ 39.4784176044 ± 4 × 3e-15
+
+	⇒ 39.4784176044 ± 12e-15
+
+	⇒ 39.4784176044 ± 2e-14
+
+
+P(Hohman transfer) = √(39.4784176044 ± 2e-14 × 
+(188760000 ± 5e4)3 km3 / 1.327e11 ± 5e7 km3/s2)
+
+(188760000 ± 5e4)3 km3 
+	⇒ 1887600003 ± (3 × 5e4 ÷ 188760000 × 1887600003)
+
+	⇒ 6.725582525376001e24 ± (3 × 5e4 ÷ 188760000 × 6.725582525376001e24)
+
+	⇒ 6.725582525376001e24 ± (1.5e5 ÷ 188760000 × 6.725582525376001e24)
+
+⇒ 6.725582525376001e24 ± (0.00079465988 × 6.725582525376001e24)
+
+⇒ 6.725582525376001e24 ± 5.3445506e21
+
+⇒ 6.725582525376001e24 ± 5e21
+
+⇒ 6.726e24 ± 5e21
+
+
+P(Hohman transfer) = √(39.4784176044 ± 2e-14 × 
+6.726e24 ± 5e21 km3 / 1.327e11 ± 5e7 km3/s2)
+
+39.4784176044 ± 2e-14 × 6.726e24 ± 5e21 km3
+⇒ 2.6553184e26 ± (2e-14 ÷ 39.4784176044 + 5e21 ÷ 6.726e24) × 2.6553184e26 km3
+
+⇒ 2.6553184e26 ± (5.0660592e-16 + 5e21 ÷ 6.725e24) × 2.6553184e26 km3
+
+⇒ 2.6553184e26 ± 0.00074349442 × 2.6553184e26 km3
+
+⇒ 2.6553184e26 ± 1.9742144e23 km3
+
+⇒ 2.6553184e26 ± 2e23 km3
+
+⇒ 2.655e26 ± 2e23 km3
+
+ 
+P(Hohman transfer) = √(2.655e26 ± 2e23 km3 / 1.327e11 ± 5e7 km3/s2)
+
+2.655e26 ± 2e23 km3 / 1.327e11 ± 5e7 km3/s2
+⇒ 2.0007536e15 ± (2e23 ÷ 2.655e26 + 5e7 ÷ 1.327e11) × 2.0007536e15 s2
+
+⇒ 2.0007536e15 ± (0.00075329566 + 0.00037678975) × 2.0007536e15 s2
+
+⇒ 2.0007536e15 ± 2.2610225e12 s2
+
+⇒ 2.0007536e15 ± 3e12 s2
+
+⇒ 2.001e15 ± 3e12 s2
+
+
+P(Hohman transfer) = √(2.001e15 ± 3e12 s2)
+
+√(2.001e15 ± 3e12 s2) 
+	⇒ √(2.001e15) ± (0.5 × 3e12 ÷ 2.001e15 × 44732538.4927) s
+
+	⇒ 44732538.4927 ± (0.5 × 3e12 ÷ 2.001e15 × 44732538.4927) s
+
+	⇒ 44732538.4927 ± (1.53e12 ÷ 2.001e15 × 44732538.4927) s
+
+	⇒ 44732538.4927 ± 34203.2902501 s
+
+	⇒ 44732538.4927 ± 3.42032902501e4 s
+
+	⇒ 44740000. ± 4e4 s
+
+P(Hohman transfer) = 44740000. ± 4e4 s
+
+
+7.	Find the Velocity of Earth’s Orbit:
+V1(Earth) = (2𝜋 × R1(Earth) km) / P1(Earth) s
+V1(Earth) = (2 × 3.14159265358979323 × 149600000 ± 5e4 km) / 31558149.504 ± 5e-4 s
+V1(Earth) = (6.283185307179586 × 149600000 ± 5e4km) / 31558149.504 ± 5e-4 s
+V1(Earth) = 939964521.954066134416 ± 5e4 km / 31558149.504 ± 5e-4 s
+V1(Earth) = 29.785159672778833 ± 0.00159 km/s
+
+
+8.	Find the velocity of Mar’s Orbit: 
+V2(Mars) = (2𝜋 × R2(Mars) km) / P2(Mars) s
+V2(Mars) = (6.283185307179586 × 227920000 ± 5e3 km) / 59329255.68 ± 5e-3 s
+V2(Mars) = 1432063595.21237124112 ± 5e3 km / 59329255.68 ± 5e-3 s
+V2(Mars) = 24.137562131849271 ± 0.000084 km/s
+
+
+9.	Find the Velocity of the Hohmann Transfer Orbit at its Perihelion (Earth)
+V(Hohmann perihelion)  = (2𝜋 × a(Hohmann transfer) km / P(Hohmann transfer) s) × 
+√((2 × a(Hohmann transfer) km / R1(Earth) km) -1)
+V(Hohmann perihelion)  = (6.283185307179586 × 188760000 ± 5e4 km / 44731077.518050780798587  ± 4e4 s) × 
+√((2 × 188760000 ± 5e4 km/149600000 ± 5e4 km) -1)
+V(Hohmann perihelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587  ± 4e4 s) × 
+√((2 × 188760000 ± 5e4 km/149600000 ± 5e4 km) -1)
+V(Hohmann perihelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587  ± 4e4 s) × 
+√((377520000 ± 5e4 km/149600000 ± 5e4 km) -1)
+V(Hohmann perihelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) ×  
+√((2.523529411764706 ± 0.0018) -1)
+V(Hohmann perihelion)  = 26.514319001249511 ± 0.02483 km/s ×  √((2.523529411764706 ± 0.0018) -1)
+V(Hohmann perihelion)  = 26.514319001249511 ± 0.02483 km/s ×  √(1.523529411764706 ± 0.0018)
+V(Hohmann perihelion)  = 26.514319001249511 ± 0.02483 km/s × 1.234313336136617 ± 0.00078
+V(Hohmann perihelion)  = 32.726977541822779 ± 0.05133 km/s
+
+10.	Find ∆V1(Earth) (the change in Velocity required to enter the Hohmann Transfer orbit at perihelion)
+∆V1(Earth) = V(Hohmann perihelion) km/s – V1(Earth) km/s
+∆V1(Earth) = 32.726977541822779 ± 0.05133 km/s – 29.785159672778833 ± 0.00159 km/s
+∆V1(Earth) = 2.941817869043946 ± 0.05292 km/s
+
+11.	Find the Velocity of the Hohmann Transfer Orbit at its Aphelion (Mars)
+V(Hohmann aphelion)  = (2 × a(Hohmann transfer) km / P(Hohmann transfer) s) × 
+√((2×a(Hohmann transfer) km/R2 km)-1)
+V(Hohmann aphelion)  = (6.283185307179586 × 188760000 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) × 
+√((2×188760000 ± 5e4 km/227920000 ± 5e3 km)-1)
+V(Hohmann aphelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) × 
+√((2×188760000 ± 5e4 km/227920000 ± 5e3 km)-1) 
+V(Hohmann aphelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) × 
+√((377520000 ± 5e4 km/227920000 ± 5e3 km)-1)
+V(Hohmann aphelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) ×
+√((1.656370656370656 ± 0.000256)-1) 
+V(Hohmann aphelion)  = (1186014058.58321865336 ± 5e4 km / 44731077.518050780798587 ± 4e4 s) ×
+√(0.656370656370656 ± 0.000256)
+V(Hohmann aphelion)  = 26.514319001249511 ± 0.02482 km/s × √(0.656370656370656 ± 0.000256)
+V(Hohmann aphelion)  = 26.514319001249511 ± 0.02482 km/s × 0.810167054607046 ± 0.000158
+V(Hohmann aphelion)  = 21.481027730153946 ± 0.008378 km/s
+
+12.	Find ∆V2(Mars) (the change in Velocity required to enter Mars orbit and Hohmann Transfer orbit aphelion)
+
+∆V2(Mars) = V2(Mars) km/s - V(Hohmann aphelion) km/s
+∆V2(Mars) = 24.137562131849271 ± 0.000084 km/s – 21.481027730153946 ± 0.008378 km/s
+∆V2(Mars) = 2.656534401695325 ± 0.008462 km/s
+
+
+13.	Find the Time of Flight from Earth to Mars (Hohmann Transfer orbit: Perihelion to Aphelion) in seconds
+TOF(seconds) = ½ × P(Hohmann transfer) s
+TOF(seconds) = ½ × 44731077.518050780798587 ± 4e4 s  
+TOF(seconds) = 22365538.76 ± 4e4 s
+
+ 
+14.	Find the Time of Flight from Earth to Mars (Hohmann Transfer orbit: Perihelion to Aphelion) in days
+TOF(days) = TOF(seconds) s / 86400 s/day
+TOF(days) = 22365538.76 ± 4e4 s / 86400 s/day
+TOF(days) = 258.860402303534611 day
