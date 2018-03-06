@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+/***
+ * 
+ * @author Puneet
+ *
+ * This is the code for computing the error terms addition and Subtraction
+ */
+
+public class Addition {
+
+	
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter first input with error term");
+		double measuredValue1 = s.nextDouble();
+		System.out.println("Error term for first input");
+		double errorTerm1 = s.nextDouble();
+		
+		System.out.println("Enter second input with error term");
+		double measuredValue2 = s.nextDouble();
+		System.out.println("Error term for second input");
+		double errorTerm2 = s.nextDouble();
+	
+		System.out.println("Enter add or sub for the result");
+		String u = s.next();
+	
+		if(u.equals("add")) {
+		double result = measuredValue1 + measuredValue2;
+		double resultError = errorTerm1 + errorTerm2;
+		
+	System.out.println("Addition:" + result +  " ± " + resultError );
+		}
+		else if(u.equals("sub")) {	
+		double result1 = measuredValue1 - measuredValue2;
+		double resultError1 = errorTerm1 + errorTerm2;
+
+	System.out.println("Subtraction:" + result1  + " ± "  + resultError1 );
+		}
+
+     }
+}
