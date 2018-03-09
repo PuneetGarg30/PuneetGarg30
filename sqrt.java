@@ -41,14 +41,14 @@ public class Sqrt {
 			System.out.println("Enter 0.5 for Squareroot, 2 for Square and 3 for Cube");
 
 			double n = keyboard.nextDouble();
-			String result =computation(n, value1, errorTerm1);	
+			String result =exponentiation(n, value1, errorTerm1);	
 					System.out.println(result);
 				
 			keyboard.close();
 			
 		}
 
-		public static String computation(double n, double value1, double errorTerm1) {
+		public static String exponentiation(double n, double value1, double errorTerm1) {
 			if (operator(n)==true) {
 				
 			double errorFraction = errorTerm1 / value1;
