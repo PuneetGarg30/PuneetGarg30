@@ -1,0 +1,163 @@
+package excelWriterExample;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFRichTextString;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+/**
+ * Fills and Colors
+ */
+public class FillsAndColors {
+    public static void main(String[] args) throws IOException {
+        try (Workbook wb = new XSSFWorkbook()) { //or new HSSFWorkbook();
+            Sheet sheet = wb.createSheet("EmployeesDetails");
+
+            // Create a row and put some cells in it. Rows are 0 based.
+            Row row = sheet.createRow(0);
+
+            // Aqua background
+            CellStyle style = wb.createCellStyle();
+            style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            Cell cell = row.createCell(0);
+            cell.setCellValue(new XSSFRichTextString("Employee Number"));
+            cell.setCellStyle(style);
+
+            // Orange "foreground", foreground being the fill foreground not the font color.
+            style = wb.createCellStyle();
+            style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style.setBorderLeft(BorderStyle.THICK);
+            style.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+            style.setBorderRight(BorderStyle.THICK);
+            style.setRightBorderColor(IndexedColors.BLACK.getIndex());
+            cell = row.createCell(1);
+            cell.setCellValue(new XSSFRichTextString("Employee Name"));
+            cell.setCellStyle(style);
+            
+         // Orange "foreground", foreground being the fill foreground not the font color.
+            style = wb.createCellStyle();
+            style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+            style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            cell = row.createCell(2);
+            cell.setCellValue(new XSSFRichTextString("Employee Address"));
+            cell.setCellStyle(style);
+
+            
+            // Create a row and put some cells in it. Rows are 0 based.
+            Row row1 = sheet.createRow(1);
+
+            // Aqua background
+            CellStyle style1 = wb.createCellStyle();
+            style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+            style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            Cell cell1 = row1.createCell(0);
+            cell1.setCellValue(new XSSFRichTextString("30"));
+            cell1.setCellStyle(style1);
+
+            // Orange "foreground", foreground being the fill foreground not the font color.
+            style1 = wb.createCellStyle();
+            style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+            style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style1.setBorderLeft(BorderStyle.THICK);
+            style1.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+            style1.setBorderRight(BorderStyle.THICK);
+            style1.setRightBorderColor(IndexedColors.BLACK.getIndex());
+            cell1 = row1.createCell(1);
+            cell1.setCellValue(new XSSFRichTextString("Stephen Curry"));
+            cell1.setCellStyle(style1);
+            
+         // Orange "foreground", foreground being the fill foreground not the font color.
+            style1 = wb.createCellStyle();
+            style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
+            style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            cell1 = row1.createCell(2);
+            cell1.setCellValue(new XSSFRichTextString("USA"));
+            cell1.setCellStyle(style1);
+            
+            // Create a row and put some cells in it. Rows are 0 based.
+            Row row2 = sheet.createRow(2);
+
+            // Aqua background
+            CellStyle style2 = wb.createCellStyle();
+            style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+            style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            Cell cell2 = row2.createCell(0);
+            cell2.setCellValue(new XSSFRichTextString("11"));
+            cell2.setCellStyle(style2);
+
+            // Orange "foreground", foreground being the fill foreground not the font color.
+            style2 = wb.createCellStyle();
+            style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+            style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style2.setBorderLeft(BorderStyle.THICK);
+            style2.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+            style2.setBorderRight(BorderStyle.THICK);
+            style2.setRightBorderColor(IndexedColors.BLACK.getIndex());
+            cell2 = row2.createCell(1);
+            cell2.setCellValue(new XSSFRichTextString("Kyrie Iriving"));
+            cell2.setCellStyle(style2);
+            
+         // Orange "foreground", foreground being the fill foreground not the font color.
+            style2 = wb.createCellStyle();
+            style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+            style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            cell2 = row2.createCell(2);
+            cell2.setCellValue(new XSSFRichTextString("England"));
+            cell2.setCellStyle(style2);
+            
+            // Create a row and put some cells in it. Rows are 0 based.
+            Row row3 = sheet.createRow(3);
+
+            // Aqua background
+            CellStyle style3 = wb.createCellStyle();
+            style3.setFillForegroundColor(IndexedColors.RED.getIndex());
+            style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style3.setBorderBottom(BorderStyle.THICK);
+            style3.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+            Cell cell3 = row3.createCell(0);
+            cell3.setCellValue(new XSSFRichTextString("23"));
+            cell3.setCellStyle(style3);
+
+            // Orange "foreground", foreground being the fill foreground not the font color.
+            style3 = wb.createCellStyle();
+            style3.setFillForegroundColor(IndexedColors.RED.getIndex());
+            style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style3.setBorderBottom(BorderStyle.THICK);
+            style3.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+            style3.setBorderLeft(BorderStyle.THICK);
+            style3.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+            style3.setBorderRight(BorderStyle.THICK);
+            style3.setRightBorderColor(IndexedColors.BLACK.getIndex());
+            cell3 = row3.createCell(1);
+            cell3.setCellValue(new XSSFRichTextString("Michael Jordan"));
+            cell3.setCellStyle(style3);
+            
+         // Orange "foreground", foreground being the fill foreground not the font color.
+            style3 = wb.createCellStyle();
+            style3.setFillForegroundColor(IndexedColors.RED.getIndex());
+            style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            style3.setBorderBottom(BorderStyle.THICK);
+            style3.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+            cell3 = row3.createCell(2);
+            cell3.setCellValue(new XSSFRichTextString("USA"));
+            cell3.setCellStyle(style3);
+            
+
+            // Write the output to a file
+            try (FileOutputStream fileOut = new FileOutputStream("fill_colors.xlsx")) {
+                wb.write(fileOut);
+            }
+        }
+    }
+}
