@@ -15,7 +15,9 @@ import org.apache.poi.xssf.usermodel.XSSFRichTextString;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- * Fills and Colors
+ * @author Puneet Garg
+ * 
+ * @version 4.00	2018-03-15 
  */
 public class FillsAndColors {
     public static void main(String[] args) throws IOException {
@@ -33,7 +35,7 @@ public class FillsAndColors {
             cell.setCellValue(new XSSFRichTextString("Employee Number"));
             cell.setCellStyle(style);
 
-            // Orange "foreground", foreground being the fill foreground not the font color.
+            
             style = wb.createCellStyle();
             style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
             style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -45,7 +47,7 @@ public class FillsAndColors {
             cell.setCellValue(new XSSFRichTextString("Employee Name"));
             cell.setCellStyle(style);
             
-         // Orange "foreground", foreground being the fill foreground not the font color.
+         // Aqua background of the cell
             style = wb.createCellStyle();
             style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
             style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -54,10 +56,10 @@ public class FillsAndColors {
             cell.setCellStyle(style);
 
             
-            // Create a row and put some cells in it. Rows are 0 based.
+            // Create a row and put some cells in it. Rows are 1 based.
             Row row1 = sheet.createRow(1);
 
-            // Aqua background
+            // green background of the cell
             CellStyle style1 = wb.createCellStyle();
             style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
             style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -65,7 +67,7 @@ public class FillsAndColors {
             cell1.setCellValue(new XSSFRichTextString("30"));
             cell1.setCellStyle(style1);
 
-            // Orange "foreground", foreground being the fill foreground not the font color.
+            // Green color will be in the foreground.. not in the font color
             style1 = wb.createCellStyle();
             style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
             style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -77,7 +79,7 @@ public class FillsAndColors {
             cell1.setCellValue(new XSSFRichTextString("Stephen Curry"));
             cell1.setCellStyle(style1);
             
-         // Orange "foreground", foreground being the fill foreground not the font color.
+         // Green as the foreground color
             style1 = wb.createCellStyle();
             style1.setFillForegroundColor(IndexedColors.GREEN.getIndex());
             style1.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -85,10 +87,10 @@ public class FillsAndColors {
             cell1.setCellValue(new XSSFRichTextString("USA"));
             cell1.setCellStyle(style1);
             
-            // Create a row and put some cells in it. Rows are 0 based.
+            // Create a row and put some cells in it. Rows are 2 based.
             Row row2 = sheet.createRow(2);
 
-            // Aqua background
+            // Yellow background
             CellStyle style2 = wb.createCellStyle();
             style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
             style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -96,7 +98,7 @@ public class FillsAndColors {
             cell2.setCellValue(new XSSFRichTextString("11"));
             cell2.setCellStyle(style2);
 
-            // Orange "foreground", foreground being the fill foreground not the font color.
+            // Yellow "foreground", foreground being the fill foreground not the font color.
             style2 = wb.createCellStyle();
             style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
             style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -108,7 +110,7 @@ public class FillsAndColors {
             cell2.setCellValue(new XSSFRichTextString("Kyrie Iriving"));
             cell2.setCellStyle(style2);
             
-         // Orange "foreground", foreground being the fill foreground not the font color.
+         // Yellow "foreground", foreground being the fill foreground not the font color.
             style2 = wb.createCellStyle();
             style2.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
             style2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -116,10 +118,10 @@ public class FillsAndColors {
             cell2.setCellValue(new XSSFRichTextString("England"));
             cell2.setCellStyle(style2);
             
-            // Create a row and put some cells in it. Rows are 0 based.
+            // Create a row and put some cells in it. Rows are 3 based.
             Row row3 = sheet.createRow(3);
 
-            // Aqua background
+            // Red background
             CellStyle style3 = wb.createCellStyle();
             style3.setFillForegroundColor(IndexedColors.RED.getIndex());
             style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -129,7 +131,7 @@ public class FillsAndColors {
             cell3.setCellValue(new XSSFRichTextString("23"));
             cell3.setCellStyle(style3);
 
-            // Orange "foreground", foreground being the fill foreground not the font color.
+            // Red "foreground", foreground being the fill foreground not the font color.
             style3 = wb.createCellStyle();
             style3.setFillForegroundColor(IndexedColors.RED.getIndex());
             style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
@@ -143,7 +145,7 @@ public class FillsAndColors {
             cell3.setCellValue(new XSSFRichTextString("Michael Jordan"));
             cell3.setCellStyle(style3);
             
-         // Orange "foreground", foreground being the fill foreground not the font color.
+         // Red "foreground", foreground being the fill foreground not the font color.
             style3 = wb.createCellStyle();
             style3.setFillForegroundColor(IndexedColors.RED.getIndex());
             style3.setFillPattern(FillPatternType.SOLID_FOREGROUND);
