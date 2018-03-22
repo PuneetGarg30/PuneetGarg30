@@ -1,0 +1,79 @@
+package excelProjectTestbed;
+
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+/**
+ * 
+ * @author Puneet
+ *
+ *@version 0.00	2018-03-22
+ *
+ */
+public class NewSample {
+
+	 public static final String SAMPLE_XLSX_FILE_PATH = "sample-xlsx-file.xlsx";     // Read the excel file from the directed path
+	 
+	public static void main(String[] args) throws IOException, InvalidFormatException {
+		
+		Workbook workbook = WorkbookFactory.create(new File(SAMPLE_XLSX_FILE_PATH));
+		int Sheets1 = workbook.getNumberOfSheets();                          // get the number of sheets in a excel workbook
+		
+		File fileOut = new File("NewSample.xlsx");                        //Create a new excel file with name "NewSample.xlsx"
+		FileOutputStream fileNew = new FileOutputStream(fileOut);
+		XSSFWorkbook newWorkbook=new XSSFWorkbook();
+		
+		for(int i=0; i<Sheets1;i++) {
+			
+			XSSFSheet inputSheet=(XSSFSheet)workbook.getSheetAt(i);                    //copy the sheet names from one excel file to another
+			String inputSheetName=workbook.getSheetName(i); 
+            XSSFSheet outputSheet=newWorkbook.createSheet(inputSheetName); 
+
+            copySheet(inputSheet,outputSheet); 
+		}
+		
+		newWorkbook.write(fileNew);
+		fileNew.close();
+	}
+
+	private static void copySheet(XSSFSheet inputSheet, XSSFSheet outputSheet) {
+		   int rowCount=inputSheet.getLastRowNum(); 
+          
+            
+             int currentRowIndex=0; if(rowCount>0)
+		{
+			Iterator rowIterator=inputSheet.iterator();
+			while(rowIterator.hasNext())
+			{
+				Row row = (Row) rowIterator.next();
+				int currentCellIndex=0;
+				Iterator<Cell> cellIterator = row.cellIterator();
+			
+				while(cellIterator.hasNext())
+				{
+				                                                                     //Creating new Row, Cell and Input value in the newly created sheet. 
+					String cellData=cellIterator.next().toString();
+					if(currentCellIndex==0)
+						outputSheet.createRow(currentRowIndex).createCell(currentCellIndex).setCellValue(cellData);
+					else
+						outputSheet.getRow(currentRowIndex).createCell(currentCellIndex).setCellValue(cellData);
+					
+					currentCellIndex++;
+				}
+				currentRowIndex++;
+			}
+			
+		}
+	}
+		
+	}
