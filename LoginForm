@@ -1,0 +1,217 @@
+package loginform;
+
+
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.CheckBoxListCell;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ReadOnlyProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.util.Callback;
+import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextAreaBuilder;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class UserInterface {
+	
+	
+	
+	/**********************************************************************************************
+
+	Attributes
+	
+	**********************************************************************************************/
+	
+	/* Constants used to parameterize the graphical user interface.  We do not use a layout manager for
+	   this application. Rather we manually control the location of each graphical element for exact
+	   control of the look and feel. */
+	private final double BUTTON_WIDTH = 60;
+
+	// These are the application values required by the user interface
+	private Label label_ApplicationTitle = new Label("Login Form");
+	private Label label_Operand1 = new Label("UserName");
+	private Label label_Operand2 = new Label("Password");
+	private TextField text_directory = new TextField();
+	private PasswordField password = new PasswordField();
+	private Label answer = new Label();
+	
+	private Label label_size = new Label();
+	
+	
+
+	private Button button_report= new Button("Submit");
+	private Button button_exit= new Button("Exit");
+	   
+	
+	/**********************************************************************************************
+
+	Constructors
+	
+	**********************************************************************************************/
+
+	/**********
+	 * This method initializes all of the elements of the graphical user interface. These assignments
+	 * determine the location, size, font, color, and change and event handlers for each GUI object.
+	 */
+	public UserInterface(Pane theRoot) {
+		
+	
+	       
+		// Label theScene with the name of the calculator, centered at the top of the pane
+		setupLabelUI(label_ApplicationTitle, "Arial", 24, Display.WINDOW_WIDTH, Pos.CENTER, 0, 10);
+		
+		// Label the first operand just above it, left aligned
+		setupLabelUI(label_Operand1, "Arial", 18, Display.WINDOW_WIDTH-10, Pos.BASELINE_LEFT, 50, 75);
+		
+		// Label the first operand just above it, left aligned
+				setupLabelUI(label_Operand2, "Arial", 18, Display.WINDOW_WIDTH-10, Pos.BASELINE_LEFT, 50, 205);
+
+		// Label the first operand just above it, left aligned
+		setupLabelUI(label_size, "Arial", 18, Display.WINDOW_WIDTH-10, Pos.BASELINE_LEFT, 550, 128);
+		
+		
+		// Establish the first text input operand field and when anything changes in operand 1 measured value,
+		// measured value process all fields to ensure that we are ready to perform as soon as possible.
+		setupTextUI(text_directory, "Arial", 18, Display.WINDOW_WIDTH/2 
+				+ 30, Pos.BASELINE_LEFT, 170, 70, true);
+		text_directory.textProperty().addListener((observable, oldValue, newValue) 
+				-> {setOperand1MeasuredValue(); });
+		
+		// Label the first operand just above it, left aligned
+				setupLabelUI(answer, "Arial", 18, Display.WINDOW_WIDTH-10, Pos.BASELINE_LEFT, 250, 500);
+		
+		setupTextUI(password, "Arial", 18, Display.WINDOW_WIDTH/2 
+				+ 30, Pos.BASELINE_LEFT, 170, 200, true);
+		password.textProperty().addListener((observable, oldValue, newValue) 
+				-> {setOperand1MeasuredValue(); });
+		
+
+	
+		
+		// Establish the ADD "+" button, position it, and link it to methods to accomplish its work
+				setupButtonUI(button_report, "Arial", 16, BUTTON_WIDTH, Pos.BASELINE_LEFT, 
+								Display.WINDOW_WIDTH/2.5-BUTTON_WIDTH/2, 300);
+				button_report.setOnAction((event) -> { performGo(); });
+				
+
+				// Establish the ADD "+" button, position it, and link it to methods to accomplish its work
+				setupButtonUI(button_exit, "Arial", 16, BUTTON_WIDTH, Pos.BASELINE_LEFT, 
+								Display.WINDOW_WIDTH/1.1-BUTTON_WIDTH/2, 500);
+				button_exit.setOnAction((event) -> { System.exit(0); });
+				
+				
+				
+			
+		// Place all of the just-initialized GUI elements into the pane
+		theRoot.getChildren().addAll(label_ApplicationTitle, label_Operand1,label_Operand2, text_directory, 
+			 button_report, button_exit,  label_size, password, answer);
+
+	}
+
+
+
+
+
+	/**********
+	 * Private local method to initialize the standard fields for a label
+	 */
+	private void setupLabelUI(Label l, String ff, double f, double w, Pos p, double x, double y){
+		l.setFont(Font.font(ff, f));
+		l.setMinWidth(w);
+		l.setAlignment(p);
+		l.setLayoutX(x);
+		l.setLayoutY(y);		
+	}
+	
+	/**********
+	 * Private local method to initialize the standard fields for a text field
+	 */
+	private void setupTextUI(TextField t, String ff, double f, double w, Pos p, double x, double y, boolean e){
+		t.setFont(Font.font(ff, f));
+		t.setMinWidth(w);
+		t.setMaxWidth(w);
+		t.setAlignment(p);
+		t.setLayoutX(x);
+		t.setLayoutY(y);		
+		t.setEditable(e);
+	}
+	
+	/**********
+	 * Private local method to initialize the standard fields for a button
+	 */
+	private void setupButtonUI(Button b, String ff, double f, double w, Pos p, double x, double y){
+		b.setFont(Font.font(ff, f));
+		b.setMinWidth(w);
+		b.setAlignment(p);
+		b.setLayoutX(x);
+		b.setLayoutY(y);		
+	}
+	
+
+	private void setOperand1MeasuredValue() {
+		
+	}
+	
+	private void performGo() {
+		
+	    String checkUser = text_directory.getText().toString();
+	  
+	        String checkPw = password.getText().toString();
+		
+		if (checkUser.equals("puneet") && checkPw.equals("123")) {
+			
+			answer.setText("Congratulations");
+			answer.setTextFill(Color.GREEN);
+		
+			 
+			
+		}
+		
+		else
+			answer.setText("Please enter a valid username and password");
+		    answer.setTextFill(Color.RED);
+	}
+	
+		}
+
+	
+	
+	
+	
+	
